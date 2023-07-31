@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../widgets/entry_field.dart';
 import '../widgets/flat_button.dart';
+import './signup_screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -26,6 +27,14 @@ class _SignInState extends State<SignIn> {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  void _navigateToSignUp() {
+    // Navigate to the SignUp page when "Sign Up" button is pressed
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SignUp()), // Replace SignUp with the actual class name of your SignUp widget
+    );
   }
 
   @override
@@ -71,11 +80,7 @@ class _SignInState extends State<SignIn> {
                 CustomFlatButton(
                   label: 'Sign up',
                   fontSize: 20,
-                  onPressed: () {
-                    if (kDebugMode) {
-                      print('Navigate to signup!');
-                    }// Handle sign-in logic here using _emailController and _passwordController.
-                  },
+                  onPressed: _navigateToSignUp,
                 ),
                 const SizedBox(height: 10),
                 CustomFlatButton(
