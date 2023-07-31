@@ -61,7 +61,7 @@ class _SignInState extends State<SignIn> {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'Sign Ip',
+                  'Sign In',
                   style: TextStyle(fontSize: 24, color: Colors.black,fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 20),
