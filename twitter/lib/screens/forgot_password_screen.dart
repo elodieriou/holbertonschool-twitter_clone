@@ -63,7 +63,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   fontWeight: FontWeight.bold,
                   onPressed: () {
                     if (kDebugMode) {
-                      print('Button clicked!');
+                      print('Forget Password Button clicked!');
                     }// Handle sign-in logic here using _emailController and _passwordController.
                   },
                 ),
