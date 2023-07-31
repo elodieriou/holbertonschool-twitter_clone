@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:twitter/screens/signup_screen.dart';
 import 'package:twitter/screens/forgot_password_screen.dart';
+import 'package:twitter/screens/home_screen.dart';
 import 'package:twitter/widgets/entry_field.dart';
 import 'package:twitter/widgets/flat_button.dart';
 
@@ -44,6 +45,13 @@ class _SignInState extends State<SignIn> {
     );
   }
 
+  void _navigateToHome() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const HomeScreen()), // Replace SignUp with the actual class name of your SignUp widget
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,11 +87,7 @@ class _SignInState extends State<SignIn> {
                   label: 'Submit',
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  onPressed: () {
-                    if (kDebugMode) {
-                      print('Button clicked!');
-                    }// Handle sign-in logic here using _emailController and _passwordController.
-                  },
+                  onPressed: _navigateToHome,
                 ),
                 const SizedBox(height: 30),
                 CustomFlatButton(
