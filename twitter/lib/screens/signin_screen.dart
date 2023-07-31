@@ -1,8 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../widgets/entry_field.dart';
-import '../widgets/flat_button.dart';
-import './signup_screen.dart';
+import 'package:twitter/screens/signup_screen.dart';
+import 'package:twitter/screens/forgot_password_screen.dart';
+import 'package:twitter/widgets/entry_field.dart';
+import 'package:twitter/widgets/flat_button.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -30,19 +31,22 @@ class _SignInState extends State<SignIn> {
   }
 
   void _navigateToSignUp() {
-    // Navigate to the SignUp page when "Sign Up" button is pressed
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SignUp()), // Replace SignUp with the actual class name of your SignUp widget
+      MaterialPageRoute(builder: (context) => const SignUp()), // Replace SignUp with the actual class name of your SignUp widget
+    );
+  }
+
+  void _navigateToForgetPassword() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ForgetPassword()), // Replace SignUp with the actual class name of your SignUp widget
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sign In'),
-      ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -54,6 +58,11 @@ class _SignInState extends State<SignIn> {
                   'http://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png',
                   height: 100,
                   width: 100,
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Sign Ip',
+                  style: TextStyle(fontSize: 24, color: Colors.black,fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 20),
                 CustomEntryField(
@@ -86,11 +95,7 @@ class _SignInState extends State<SignIn> {
                 CustomFlatButton(
                     label: 'Forget password?',
                     fontSize: 20,
-                  onPressed: () {
-                    if (kDebugMode) {
-                      print('Navigate to forget password!');
-                    }// Handle sign-in logic here using _emailController and _passwordController.
-                  },
+                  onPressed: _navigateToForgetPassword,
                 ),
               ],
             ),

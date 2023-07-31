@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../widgets/entry_field.dart';
-import '../widgets/flat_button.dart';
+import 'package:twitter/widgets/entry_field.dart';
+import 'package:twitter/widgets/flat_button.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -30,7 +30,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign Up'),
+        title: const Text('Sign In'),
       ),
       body: Form(
         key: _formKey,
@@ -43,6 +43,11 @@ class _SignUpState extends State<SignUp> {
                 'http://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png',
                 height: 100,
                 width: 100,
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'Sign Up',
+                style: TextStyle(fontSize: 24, color: Colors.black,fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20),
               CustomEntryField(
