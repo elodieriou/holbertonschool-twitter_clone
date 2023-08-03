@@ -8,8 +8,13 @@ class ChatsScreen extends StatefulWidget {
 class _ChatsScreenState extends State<ChatsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // You can add any necessary widgets and logic here later.
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Chats Screen'),
+      ),
+      body: const Center(
+        child: Text('Chats Screen Content'),
+      ),
     );
   }
 }

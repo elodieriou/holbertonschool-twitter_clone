@@ -8,8 +8,13 @@ class NotificationsScreen extends StatefulWidget {
 class _NotificationsScreenState extends State<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // You can add any necessary widgets and logic here later.
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Notifications Screen'),
+      ),
+      body: const Center(
+        child: Text('Notifications Screen Content'),
+      ),
     );
   }
 }

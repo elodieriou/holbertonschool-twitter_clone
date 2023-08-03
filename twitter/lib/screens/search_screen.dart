@@ -8,8 +8,13 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // You can add any necessary widgets and logic here later.
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Search Screen'),
+      ),
+      body: const Center(
+        child: Text('Search Screen Content'),
+      ),
     );
   }
 }

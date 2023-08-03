@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:twitter/screens/signin_screen.dart';
 import 'package:twitter/providers/share_state.dart';
+import 'package:twitter/widgets/bar_menu.dart';
 
 void main() {
+  Provider.debugCheckInvalidValueType = null;
   runApp(const MyApp());
 }
 
