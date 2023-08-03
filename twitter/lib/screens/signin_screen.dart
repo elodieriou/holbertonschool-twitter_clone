@@ -15,33 +15,35 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   late TextEditingController _emailController = TextEditingController();
   late TextEditingController _passwordController = TextEditingController();
-  final PageController _pageController = PageController();
+  late PageController _pageController = PageController();
 
   @override
   void initState() {
     super.initState();
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
+    _pageController = PageController();
   }
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
   void _navigateToSignUp() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const SignUp()), // Replace SignUp with the actual class name of your SignUp widget
+      MaterialPageRoute(builder: (context) => const SignUp()),
     );
   }
 
   void _navigateToForgetPassword() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const ForgetPassword()), // Replace SignUp with the actual class name of your SignUp widget
+      MaterialPageRoute(builder: (context) => const ForgetPassword()),
     );
   }
 

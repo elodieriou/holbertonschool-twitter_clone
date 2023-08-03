@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:twitter/providers/share_state.dart';
 import 'package:twitter/screens/home_screen.dart';
 import 'package:twitter/screens/search_screen.dart';
 import 'package:twitter/screens/notifications_screen.dart';
@@ -63,14 +61,16 @@ class _BarMenuState extends State<BarMenu> {
           });
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), label: 'Notifications'),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chats'),
+              icon: Icon(Icons.notifications), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: ''),
         ],
         selectedItemColor: _selectedItemColor,
         unselectedItemColor: _unselectedItemColor,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
       ),
     );
   }

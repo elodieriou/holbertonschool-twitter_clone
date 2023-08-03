@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:twitter/widgets/users_search_results_widget.dart';
-import 'package:twitter/assets/dummy_data.dart';
+import 'package:twitter/assets/user_data.dart';
 import 'package:twitter/widgets/entry_field.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -15,9 +15,6 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Search Screen'),
-      ),
       body: Column(
         children: [
           Padding(
@@ -39,7 +36,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   icon: const Icon(Icons.settings, color: Colors.blue),
                   onPressed: () {
                     if (kDebugMode) {
-                      print('Signup Button Clicked');
+                      print('Settings Button Clicked');
                     }// Handle sign-in logic here using _emailController and _passwordController.
                   },
                 ),
