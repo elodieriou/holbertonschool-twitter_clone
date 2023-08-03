@@ -29,6 +29,7 @@ class _SideBarMenuState extends State<SideBarMenu> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 const CircleAvatar(
+                  backgroundImage: AssetImage('assets/avatar.jpg'),
                   radius: 30,
                 ),
                 const SizedBox(height: 8),
