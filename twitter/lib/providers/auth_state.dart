@@ -119,4 +119,17 @@ class Auth extends ChangeNotifier {
     }
   }
 
+  Future<User?> getUserByID(String userID) async {
+    try {
+      final userData = await usersRef.doc(userID).get();
+      if (userData.exists) {
+        final user = userData.data();
+        return user;
+      } else {
+        return null; // User data not found
+      }
+    } catch (error) {
+      throw Exception('Error fetching user data: $error');
+    }
+  }
 }
