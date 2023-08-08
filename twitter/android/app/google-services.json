@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "742691703762",
+    "firebase_url": "https://twitterclone-28ec4-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "twitterclone-28ec4",
+    "storage_bucket": "twitterclone-28ec4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742691703762:android:fa25662ea3367669f2960b",
+        "android_client_info": {
+          "package_name": "com.example.twitter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "742691703762-4qd3nusl71p6fvttq62ihqehvq5ei0l8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMfSW161cY3ijPhrbvQbOcYbuGVQKkJEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "742691703762-4qd3nusl71p6fvttq62ihqehvq5ei0l8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "742691703762-gd6qg1qigrma1kjcqmknhq91ma19oc1d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.twitter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

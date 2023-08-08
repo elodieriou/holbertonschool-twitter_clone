@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:twitter/screens/signup_screen.dart';
 import 'package:twitter/screens/forgot_password_screen.dart';
 import 'package:twitter/widgets/bar_menu.dart';
 import 'package:twitter/widgets/entry_field.dart';
 import 'package:twitter/widgets/flat_button.dart';
+import 'package:twitter/providers/auth_state.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -36,7 +39,12 @@ class _SignInState extends State<SignIn> {
   void _navigateToSignUp() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const SignUp()),
+      MaterialPageRoute(
+        builder: (context) {
+          final auth = Provider.of<Auth>(context, listen: false);
+          return SignUp(auth: auth);
+        },
+      ),
     );
   }
 
@@ -64,8 +72,10 @@ class _SignInState extends State<SignIn> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network(
-                  'http://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png',
+                CachedNetworkImage(
+                  imageUrl: 'http://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png',
+                  placeholder: (context, url) => const CircularProgressIndicator(), // Placeholder while loading
+                  errorWidget: (context, url, error) => const Icon(Icons.error), // Error widget
                   height: 100,
                   width: 100,
                 ),
