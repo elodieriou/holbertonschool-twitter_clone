@@ -6,7 +6,6 @@ import 'package:twitter/widgets/bar_menu.dart';
 import 'package:twitter/widgets/entry_field.dart';
 import 'package:twitter/widgets/flat_button.dart';
 import 'package:twitter/providers/auth_state.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -104,10 +103,8 @@ class _SignInState extends State<SignIn> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CachedNetworkImage(
-                  imageUrl: 'http://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png',
-                  placeholder: (context, url) => const CircularProgressIndicator(), // Placeholder while loading
-                  errorWidget: (context, url, error) => const Icon(Icons.error), // Error widget
+                Image.asset(
+                  'assets/twitter_logo.png',
                   height: 100,
                   width: 100,
                 ),

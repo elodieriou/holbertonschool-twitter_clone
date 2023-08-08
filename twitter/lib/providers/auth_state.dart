@@ -30,8 +30,8 @@ class Auth extends ChangeNotifier {
           key: authResult.user!.uid,
           userID: authResult.user!.uid,
           email: email,
-          userName: name,
-          displayName: '',
+          userName: '',
+          displayName: name,
           imageUrl: '',
           followers: 0,
           following: 0,
@@ -99,4 +99,24 @@ class Auth extends ChangeNotifier {
       // Handle error if necessary
     }
   }
+
+  Future<User> getCurrentUserModel() async {
+    try {
+      final currentUser = auth.currentUser;
+      if (currentUser != null) {
+        final userData = await usersRef.doc(currentUser.uid).get();
+        if (userData.exists) {
+          final user = userData.data()!;
+          return user;
+        } else {
+          throw Exception('User data not found');
+        }
+      } else {
+        throw Exception('User not authenticated');
+      }
+    } catch (error) {
+      throw Exception('Error fetching user data: $error');
+    }
+  }
+
 }

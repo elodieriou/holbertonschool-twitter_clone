@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:twitter/providers/auth_state.dart';
 import 'package:twitter/screens/signin_screen.dart';
+import 'package:twitter/models/user.dart';
 
 class SideBarMenu extends StatefulWidget {
   const SideBarMenu({Key? key}) : super(key: key);
@@ -12,13 +13,20 @@ class SideBarMenu extends StatefulWidget {
 }
 
 class _SideBarMenuState extends State<SideBarMenu> {
-  // Placeholder data, will be fetched from backend later
-  final String _username = 'Élodie';
-  final int _followerCount = 1000;
-  final int _followingCount = 23;
+  User? _currentUser;
+
 
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<Auth>(context, listen: false);
+    auth.getCurrentUserModel().then((user) {
+      if (mounted) {
+        setState(() {
+          _currentUser = user;
+        });
+      }
+    });
+
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -37,7 +45,7 @@ class _SideBarMenuState extends State<SideBarMenu> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  _username,
+                  _currentUser?.displayName ?? '',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -49,7 +57,7 @@ class _SideBarMenuState extends State<SideBarMenu> {
                   child: Row(
                     children: [
                       Text(
-                        '$_followerCount: Followers',
+                        '${_currentUser?.followers ?? 0} Followers',
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,
@@ -57,7 +65,7 @@ class _SideBarMenuState extends State<SideBarMenu> {
                       ),
                       const SizedBox(width: 8), // Add spacing between the two Text widgets
                       Text(
-                        '$_followingCount: Following',
+                        '${_currentUser?.following ?? 0} Following',
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,
