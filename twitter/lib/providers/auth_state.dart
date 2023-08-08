@@ -90,4 +90,13 @@ class Auth extends ChangeNotifier {
       }
     }
   }
+
+  Future<void> logout() async {
+    try {
+      await auth.signOut();
+      notifyListeners();
+    } catch (error) {
+      // Handle error if necessary
+    }
+  }
 }

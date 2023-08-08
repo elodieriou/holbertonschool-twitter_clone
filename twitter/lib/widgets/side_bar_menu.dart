@@ -1,5 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:twitter/providers/auth_state.dart';
+import 'package:twitter/screens/signin_screen.dart';
 
 class SideBarMenu extends StatefulWidget {
   const SideBarMenu({Key? key}) : super(key: key);
@@ -123,10 +126,14 @@ class _SideBarMenuState extends State<SideBarMenu> {
           ),
           ListTile(
             title: const Text('Logout'),
-            onTap: () {
-              if (kDebugMode) {
-                print('Menu Logout clicked');
-              }
+            onTap: () async {
+              final auth = Provider.of<Auth>(context, listen: false);
+              await auth.logout();
+
+              // Navigate back to the login screen after logout
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => const SignIn()),
+              );
             },
           ),
           // Add more menu items as needed

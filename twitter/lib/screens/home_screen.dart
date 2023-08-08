@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:twitter/providers/auth_state.dart';
 import 'package:twitter/widgets/side_bar_menu.dart';
 import 'package:twitter/widgets/post_widget.dart';
 import 'package:twitter/assets/post_data.dart';
@@ -16,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       key: _scaffoldKey, // Assign the GlobalKey to the Scaffold
       appBar: AppBar(
