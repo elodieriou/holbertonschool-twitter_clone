@@ -55,11 +55,43 @@ class _SignInState extends State<SignIn> {
     );
   }
 
-  void _navigateToBarMenu() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const BarMenu()),
-    );
+  void _navigateToBarMenu() async {
+    final auth = Provider.of<Auth>(context, listen: false);
+    final email = _emailController.text;
+    final password = _passwordController.text;
+
+    final loginResult = await auth.attemptLogin(email, password);
+
+    if (loginResult == Errors.none) {
+      // Successful login, navigate to home screen (BarMenu)
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const BarMenu()),
+      );
+    } else {
+      String errorMessage = '';
+      switch (loginResult) {
+        case Errors.noUserError:
+          errorMessage = 'No user found for that email!';
+          break;
+        case Errors.wrongError:
+          errorMessage = 'Wrong password!';
+          break;
+        case Errors.error:
+          errorMessage = 'Failed to Login! Please try later.';
+          break;
+        default:
+          errorMessage = 'An error occurred. Please try again.';
+      }
+
+      // Show a red snackbar with the error message
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(errorMessage),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 
   @override
